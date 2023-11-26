@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Culture {% endblock %}
+
+{% block content %}
+    <form action="/culture" method="POST">
+        <input type="text" name="culture" placeholder="culture">
+        <input type="text" name="season" placeholder="season">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
