@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
-import csv
+import json
 import os
 
 def culture(cultureName, seasonName):
@@ -12,22 +12,22 @@ def culture(cultureName, seasonName):
     base_b = pd.read_csv(os.path.join(os.path.dirname(__file__), 'database/dados_cidades.csv'))
 
     # Entradas (X) e saídas (y)
-    X = base_b[['temperatura_maxima', 'temperatura_minima', 'tipo_de_solo']]
+    X = base_b[['temperatura_maxima', 'temperatura_minima', 'tipo_de_solo_predominante']]
 
-    # Transformar a variável categórica 'tipo_de_solo' em variáveis dummy
-    X = pd.get_dummies(X, columns=['tipo_de_solo'], drop_first=True)
+    # Transformar a variável categórica 'tipo_de_solo_predominante' em variáveis dummy
+    X = pd.get_dummies(X, columns=['tipo_de_solo_predominante'], drop_first=True)
 
     y = np.zeros(len(base_b))  # Inicializar a saída com zeros
 
     # Input do usuário
     cultura_escolhida = cultureName
-    estacao_do_ano_escolhida = seasonName.lower()
+    estacao_do_ano_escolhida = seasonName
 
     # Filtrar a cultura selecionada para obter as condições ideais
     condicoes_ideais = base_a[base_a['cultura'] == cultura_escolhida]
 
     cultura_filtrada = base_a[base_a['cultura'] == cultura_escolhida]
-
+    
     if not cultura_filtrada.empty:
         condicoes_ideais = cultura_filtrada.iloc[0]
 
@@ -39,7 +39,7 @@ def culture(cultureName, seasonName):
     for index, row_b in base_b_filtrada.iterrows():
         similaridade_temp_max = abs(row_b['temperatura_maxima'] - condicoes_ideais['temperatura_maxima'])
         similaridade_temp_min = abs(row_b['temperatura_minima'] - condicoes_ideais['temperatura_minima'])
-        similaridade_tipo_solo = 1 if row_b['tipo_de_solo'] == condicoes_ideais['tipo_de_solo'] else 0
+        similaridade_tipo_solo = 1 if row_b['tipo_de_solo_predominante'] == condicoes_ideais['tipo_de_solo_predominante'] else 0
 
         # Calcular pontuação total de similaridade
         pontuacao_similaridade = 1 / (1 + similaridade_temp_max + similaridade_temp_min + (1 - similaridade_tipo_solo))
@@ -74,5 +74,3 @@ def culture(cultureName, seasonName):
     # Retornar o json correspondente a busca
     json_result = base_b_ordenada[['cidade', 'pontuacao_similaridade']].to_json(orient='records')
     return json_result
-
-
