@@ -1,64 +1,31 @@
-import PropTypes from 'prop-types';
-import './Content.css';
+import { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import './Content.css'
 
-  // content =
-  // [
-
-  //   {
-  
-  //     cidade: 'Sorocaba',
-  
-  //     pontuacao_similaridade: 0.7185714286
-  
-  //   },
-  
-  //   {
-  
-  //     cidade: 'Bauru',
-  
-  //     pontuacao_similaridade: 0.7185714286
-  
-  //   },
-  
-  //   {
-  
-  //     cidade: 'São Paulo',
-  
-  //     pontuacao_similaridade: 0.2241666667
-  
-  //   },
-  
-  //   {
-  
-  //     cidade: 'Salvador',
-  
-  //     pontuacao_similaridade: 0.0660714286
-  
-  //   },
-  
-  //   {
-  
-  //     cidade: 'Rio de Janeiro',
-  
-  //     pontuacao_similaridade: 0.0319047619
-  
-  //   }
-  
-  // ]
-
-import map from './assets/mapa_sp.svg';
+import Map from './assets/Map.jsx'
 
 function Content({ content }) {
+  useEffect(() => {
+    content.forEach(({ codigo_ibge, pontuacao_similaridade }) => {
+      const element = document.querySelector('.ibge_' + codigo_ibge)
+      if (element) {
+        element.style.fill = `rgba(100, 108, 255, ${pontuacao_similaridade})`
+      }
+    })
+  }, [content])
+
   return (
     <>
-      <img src={map} alt="Mapa de São Paulo" className="responsive-image" />
+      <div className="responsive-image">
+        <Map />
+      </div>
     </>
-  );
+  )
 }
 
 Content.propTypes = {
   content: PropTypes.any.isRequired,
-};
+}
 
-export default Content;
+export default Content
 
