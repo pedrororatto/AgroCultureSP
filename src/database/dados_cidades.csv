@@ -1,6 +1,121 @@
-cidade,estacao_do_ano,temperatura_maxima,temperatura_minima,tipo_de_solo
-Sorocaba,verão,25,15,argiloso
-Bauru,primavera,25,15,argiloso
-São Paulo,verão,28,18,argiloso
-Rio de Janeiro,primavera,29,19,arenoso
-Salvador,verão,30,20,arenoso
+cidade,estacao_do_ano,temperatura_maxima,temperatura_minima,tipo_de_solo_predominante
+Andradina,Inverno,31,14,Argissolo
+Araçoiaba da Serra,Inverno,29,21,Argissolo
+Araraquara,Inverno,28,12,Latossolo
+Assis,Inverno,28,14,Latossolo
+Avaré,Inverno,25,13,Latossolo
+Barra Bonita,Inverno,28,14,Nitossolo
+Barretos,Inverno,31,15,Latossolo
+Bauru,Inverno,28,15,Latossolo
+Botucatu,Inverno,25,12,Latossolo
+Campinas,Inverno,27,13,Argissolo
+Guaratinguetá,Inverno,27,12,Gleissolo
+Itapetininga,Inverno,25,13,Latossolo
+Itapeva,Inverno,24,13,Latossolo
+Jaboticabal,Inverno,30,13,Latossolo
+Jales,Inverno,32,14,Argissolo
+Limeira,Inverno,24,12,Latossolo
+Marília,Inverno,28,15,Argissolo
+Mogi-Mirim,Inverno,27,12,Latossolo
+Ourinhos,Inverno,29,16,Latossolo
+Pindamonhagaba ,Inverno,28,12,Gleissolo
+Piracicaba,Inverno,28,13,Argissolo
+Presidente Prudente,Inverno,30,15,Argissolo
+Registro,Inverno,26,17,Cambissolo
+Ribeirão Preto,Inverno,31,13,Latossolo
+Santa Cruz do Rio Pardo,Inverno,28,15,Argissolo
+São Jõao da Boa Vista,Inverno,27,10,Latossolo
+Sorocaba,Inverno,26,13,Argissolo
+Tupã,Inverno,29,15,Argissolo
+Votuporanga,Inverno,32,14,Argissolo
+Andradina,Outono,30,15,Argissolo
+Araçoiaba da Serra,Outono,32,23,Argissolo
+Araraquara,Outono,29,13,Latossolo
+Assis,Outono,30,15,Latossolo
+Avaré,Outono,29,14,Latossolo
+Barra Bonita,Outono,31,15,Nitossolo
+Barretos,Outono,30,16,Latossolo
+Bauru,Outono,30,16,Latossolo
+Botucatu,Outono,29,13,Latossolo
+Campinas,Outono,29,14,Argissolo
+Guaratinguetá,Outono,31,14,Gleissolo
+Itapetininga,Outono,29,14,Latossolo
+Itapeva,Outono,28,14,Latossolo
+Jaboticabal,Outono,30,14,Latossolo
+Jales,Outono,29,15,Argissolo
+Limeira,Outono,30,13,Latossolo
+Marília,Outono,30,15,Argissolo
+Mogi-mirim,Outono,30,13,Latossolo
+Ourinhos,Outono,31,16,Latossolo
+Pindamonhagaba ,Outono,31,14,Gleissolo
+Piracicaba,Outono,30,14,Argissolo
+Presidente Prudente,Outono,31,16,Argissolo
+Registro,Outono,32,18,Cambissolo
+Ribeirão Preto,Outono,31,14,Latossolo
+Santa Cruz do Rio Pardo,Outono,31,16,Argissolo
+São Jõao da Boa Vista,Outono,29,11,Latossolo
+Sorocaba,Outono,29,15,Argissolo
+Tupã,Outono,31,16,Argissolo
+Votuporanga,Outono,29,15,Argissolo
+Andradina,Primavera,33,17,Argissolo
+Araçoiaba da Serra,Primavera,31,22,Argissolo
+Araraquara,Primavera,30,15,Latossolo
+Assis,Primavera,30,16,Latossolo
+Avaré,Primavera,28,15,Latossolo
+Barra Bonita,Primavera,31,16,Nitossolo
+Barretos,Primavera,32,18,Latossolo
+Bauru,Primavera,30,17,Latossolo
+Botucatu,Primavera,28,13,Latossolo
+Campinas,Primavera,29,15,Argissolo
+Guaratinguetá,Primavera,27,14,Gleissolo
+Itapetininga,Primavera,28,14,Latossolo
+Itapeva,Primavera,28,14,Latossolo
+Jaboticabal,Primavera,31,16,Latossolo
+Jales,Primavera,32,17,Argissolo
+Limeira,Primavera,29,14,Latossolo
+Marília,Primavera,30,17,Argissolo
+Mogi-mirim,Primavera,29,14,Latossolo
+Ourinhos,Primavera,31,17,Latossolo
+Pindamonhagaba ,Primavera,30,14,Gleissolo
+Piracicaba,Primavera,30,15,Argissolo
+Presidente Prudente,Primavera,31,21,Argissolo
+Registro,Primavera,30,17,Cambissolo
+Ribeirão Preto,Primavera,32,16,Latossolo
+Santa Cruz do Rio Pardo,Primavera,30,17,Argissolo
+São Jõao da Boa Vista,Primavera,29,12,Latossolo
+Sorocaba,Primavera,29,15,Argissolo
+Tupã,Primavera,30,17,Argissolo
+Votuporanga,Primavera,33,17,Argissolo
+Andradina,Verão,32,22,Argissolo
+Araçoiaba da Serra,Verão,32,24,Argissolo
+Araraquara,Verão,29,20,Latossolo
+Assis,Verão,30,20,Latossolo
+Avaré,Verão,29,18,Latossolo
+Barra Bonita,Verão,31,20,Nitossolo
+Barretos,Verão,31,22,Latossolo
+Bauru,Verão,30,20,Latossolo
+Botucatu,Verão,29,18,Latossolo
+Campinas,Verão,29,19,Argissolo
+Guaratinguetá,Verão,31,19,Gleissolo
+Itapetininga,Verão,29,18,Latossolo
+Itapeva,Verão,29,18,Latossolo
+Jaboticabal,Verão,30,21,Latossolo
+Jales,Verão,31,21,Argissolo
+Limeira,Verão,30,19,Latossolo
+Marília,Verão,30,20,Argissolo
+Mogi-mirim,Verão,30,19,Latossolo
+Ourinhos,Verão,31,22,Latossolo
+Pindamonhagaba ,Verão,31,19,Gleissolo
+Piracicaba,Verão,31,20,Argissolo
+Presidente Prudente,Verão,32,21,Argissolo
+Registro,Verão,32,22,Cambissolo
+Ribeirão Preto,Verão,31,21,Latossolo
+Santa Cruz do Rio Pardo,Verão,31,20,Argissolo
+São Jõao da Boa Vista,Verão,29,19,Latossolo
+Sorocaba,Verão,29,19,Argissolo
+Tupã,Verão,30,21,Argissolo
+Votuporanga,Verão,31,21,Argissolo
+Araçatuba,Verão,31,22,Latossolo
+Araçatuba,Inverno,30,17,Latossolo
+Araçatuba,Primavera,32,19,Latossolo
+Araçatuba,Outono,31,17,Latossolo
