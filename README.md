@@ -5,8 +5,9 @@ AgroCultureSP is a project based on the Information Systems Strategies course at
  - Flask
  - ReactJs
 
-## How to setup
+## How to setup and run
  - Install python (or python3 in Mac OS and Linux);
  - Access the virtual environment (myenv) in terminal (`source myenv/bin/activate`)
- - Run python app.py on Windows or python3 app.py on Linux/Mac OS;
-    - Run `pip install requests` if terminal gives an error like "module 'requests' not found";
+ - Run `pip install -r requirements.txt` to install all the dependencies on the virtual environment
+ - Run `python src/app.py` on Windows or `python3 src/app.py` on Linux/Mac OS;
+ - Access the site with this url: `localhost:5000`
