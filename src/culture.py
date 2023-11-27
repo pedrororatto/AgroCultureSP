@@ -71,6 +71,7 @@ def culture(cultureName, seasonName):
     # Ordenar as cidades em ordem decrescente de pontuação de similaridade
     base_b_ordenada = base_b.sort_values(by='pontuacao_similaridade', ascending=False)
 
+    # Retornar o json correspondente a busca
     json_result = base_b_ordenada[['cidade', 'pontuacao_similaridade']].to_json(orient='records')
     return json_result
 
