@@ -1,10 +1,14 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from culture import culture
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/')
 def index():
-   return render_template('index.html')
+    return app.send_static_file('index.html')
+
+@app.route('/<path:path>')
+def static_file(path):
+    return app.send_static_file(path)
 
 @app.route('/culture', methods=['GET', 'POST'])
 def culture_season():
@@ -14,7 +18,7 @@ def culture_season():
       return culture(culture_type, season_type)
 
    else:
-      return render_template('index.html')
+      return 
 
 if __name__ == '__main__':
    app.run(debug=True)
