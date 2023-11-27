@@ -10,4 +10,4 @@ AgroCultureSP is a project based on the Information Systems Strategies course at
  - Access the virtual environment (myenv) in terminal (`source myenv/bin/activate`)
  - Run `pip install -r requirements.txt` to install all the dependencies on the virtual environment
  - Run `python src/app.py` on Windows or `python3 src/app.py` on Linux/Mac OS;
- - Access the port: [localhost](localhost:5000)
+ - Access the port: localhost:5000
