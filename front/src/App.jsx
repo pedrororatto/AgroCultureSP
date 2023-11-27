@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Content from './Content'
 import './App.css'
+import ibgeCities from './assets/municipios_sp.json'
 
 const API_URL = 'http://localhost:5000/culture'
 
@@ -35,7 +36,19 @@ function App() {
       }
 
       const data = await response.json()
-      setContent(data)
+
+      const dataWithId = data.map(({ cidade, pontuacao_similaridade }) => {
+        const { id } = ibgeCities.find(({ nome }) => nome === cidade) ?? { id: null}
+          return {
+            cidade: cidade,
+            codigo_ibge: id,
+            pontuacao_similaridade: pontuacao_similaridade
+          }
+        }
+      )
+      
+      console.log(dataWithId)
+      setContent(dataWithId)
     } catch (error) {
       setError('Ocorreu um erro ao buscar o conteúdo')
       console.error(error)
