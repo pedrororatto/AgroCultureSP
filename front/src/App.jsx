@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Content from './Content'
 import './App.css'
 import ibgeCities from './assets/municipios_sp.json'
+import Header from './Header'
 
 const API_URL = 'http://localhost:5000/culture'
 
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <div className="header">
         <div className="input">
           <input

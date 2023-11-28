@@ -53,15 +53,6 @@ def culture(cultureName, seasonName):
     modelo = RandomForestRegressor(n_estimators=100, random_state=42)
     modelo.fit(X_train, y_train)
 
-    # Avaliar o desempenho do modelo com MAE e MSE
-    # y_pred = modelo.predict(X_test)
-    # mae = mean_absolute_error(y_test, y_pred)
-    # mse = mean_squared_error(y_test, y_pred)
-
-    # print(f"Erro Médio Absoluto (MAE) do Modelo: {mae}")
-    # print(f"Erro Quadrático Médio (MSE) do Modelo: {mse}")
-
-
     # Usar o modelo para prever as pontuações de similaridade para todas as cidades
     pontuacoes_preditas = modelo.predict(X)
 
@@ -71,6 +62,11 @@ def culture(cultureName, seasonName):
     # Ordenar as cidades em ordem decrescente de pontuação de similaridade
     base_b_ordenada = base_b.sort_values(by='pontuacao_similaridade', ascending=False)
 
-    # Retornar o json correspondente a busca
-    json_result = base_b_ordenada[['cidade', 'pontuacao_similaridade']].head(5).to_json(orient='records')
+    resultados_agrupados = base_b_ordenada.groupby('estacao_do_ano').apply(lambda group: group.nlargest(1, 'pontuacao_similaridade'))
+
+    # Resetar o índice para que a estacao_do_ano se torne uma coluna novamente
+    resultados_agrupados.reset_index(drop=True, inplace=True)
+
+    json_result = resultados_agrupados[['cidade', 'estacao_do_ano', 'pontuacao_similaridade']].to_json(orient='records')
+    
     return json_result

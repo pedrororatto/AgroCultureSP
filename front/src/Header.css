@@ -1,0 +1,12 @@
+.responsive-header {
+    display: block;
+    max-width: min(calc(1280px - 4rem), 100%);
+    height: auto;
+    padding: 0 100px 0 100px;
+    margin: 0 100px 0 100px;
+}
+
+h1 {
+    font-weight: 1000;
+    color: #646cff;
+}
