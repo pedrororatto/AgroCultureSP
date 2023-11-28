@@ -41,7 +41,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-input {
+input,
+select {
   width: 100%;
   font-size: 1em;
   font-family: inherit;
@@ -53,7 +54,9 @@ input {
 }
 
 input:focus,
-input:focus-visible {
+input:focus-visible,
+select:focus,
+select:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
   border-color: #646cff;
 }

@@ -15,7 +15,7 @@ function App() {
 
   async function fetchContent() {
     if (!culture || !season) {
-      setError('Por favor, informe a cultura e a estação')
+      setError('Por favor, selecione a cultura e a estação')
       return
     }
 
@@ -63,22 +63,29 @@ function App() {
       <Header />
       <div className="header">
         <div className="input">
-          <input
+          <select
             id="culture"
-            type="text"
-            placeholder="Cultura (Ex.: Café)"
             value={culture}
             onChange={(e) => setCulture(e.target.value)}
-          />
+          >
+            <option value="">Selecione a cultura</option>
+            <option value="Café">Café</option>
+            <option value="Milho">Milho</option>
+            <option value="Soja">Soja</option>
+          </select>
         </div>
         <div className="input">
-          <input
+          <select
             id="season"
-            type="text"
-            placeholder="Estação (Ex.: Verão)"
             value={season}
             onChange={(e) => setSeason(e.target.value)}
-          />
+          >
+            <option value="">Selecione a estação</option>
+            <option value="Verão">Verão</option>
+            <option value="Outono">Outono</option>
+            <option value="Inverno">Inverno</option>
+            <option value="Primavera">Primavera</option>
+          </select>
         </div>
         <button onClick={fetchContent} disabled={loading}>
           {loading ? '...' : 'Buscar'}
