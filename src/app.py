@@ -1,6 +1,6 @@
 from flask import Flask, request
-from culture import culture
-from list_culture_season import list_culture_season
+from src.culture import culture
+from src.list_culture_season import list_culture_season
 app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/')
@@ -24,6 +24,3 @@ def culture_season():
 @app.route('/list', methods=['GET'])
 def list():
    return list_culture_season()
-
-if __name__ == '__main__':
-   app.run(debug=True)

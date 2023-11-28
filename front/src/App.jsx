@@ -4,7 +4,7 @@ import './App.css'
 import ibgeCities from './assets/municipios_sp.json'
 import Header from './Header'
 
-const API_URL = 'http://localhost:5000'
+const API_URL = document.location
 
 function App() {
   const [culture, setCulture] = useState('')
