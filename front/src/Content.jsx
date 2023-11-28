@@ -30,7 +30,7 @@ function Content({ content }) {
         setCurrentCity({
           ibge,
           nome,
-          pontuacao_similaridade: pontuacao_similaridade ? pontuacao_similaridade.toFixed(2) * 100 : null
+          pontuacao_similaridade: pontuacao_similaridade ? (pontuacao_similaridade * 100).toFixed(2) : null
         })
       })
     })
