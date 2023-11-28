@@ -1,17 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Content from './Content'
 import './App.css'
 import ibgeCities from './assets/municipios_sp.json'
 import Header from './Header'
 
-const API_URL = 'http://localhost:5000/culture'
+const API_URL = 'http://localhost:5000'
 
 function App() {
   const [culture, setCulture] = useState('')
+  const [cultures, setCultures] = useState([])
   const [season, setSeason] = useState('')
+  const [seasons, setSeasons] = useState([])
   const [content, setContent] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+
+  async function fetchSeasonsAndCultures() {
+    try {
+      const response = await fetch(`${API_URL}/list`)
+      const data = await response.json()
+      setCultures(data.culture)
+      setSeasons(data.season)
+    } catch (error) {
+      setError('Ocorreu um erro ao buscar as culturas e estações')
+      console.error(error)
+    }
+  }
 
   async function fetchContent() {
     if (!culture || !season) {
@@ -23,11 +37,15 @@ function App() {
     setError(null)
 
     const formData = new FormData()
-    formData.append('culture', culture.toLowerCase())
-    formData.append('season', season.toLowerCase())
+    formData.append('culture', culture)
+    formData.append('season', season)
+
+    document.querySelectorAll('path[class*=" ibge_"]').forEach((element) => {
+      element.style.fill = `#c1c1c1`
+    })
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(`${API_URL}/culture`, {
         method: 'POST',
         body: formData
       })
@@ -58,6 +76,8 @@ function App() {
     }
   }
 
+  useEffect(() => { fetchSeasonsAndCultures() }, [])
+
   return (
     <>
       <Header />
@@ -69,9 +89,11 @@ function App() {
             onChange={(e) => setCulture(e.target.value)}
           >
             <option value="">Selecione a cultura</option>
-            <option value="Café">Café</option>
-            <option value="Milho">Milho</option>
-            <option value="Soja">Soja</option>
+            {cultures.map((culture) => (
+              <option key={culture} value={culture}>
+                {culture}
+              </option>
+            ))}
           </select>
         </div>
         <div className="input">
@@ -81,10 +103,11 @@ function App() {
             onChange={(e) => setSeason(e.target.value)}
           >
             <option value="">Selecione a estação</option>
-            <option value="Verão">Verão</option>
-            <option value="Outono">Outono</option>
-            <option value="Inverno">Inverno</option>
-            <option value="Primavera">Primavera</option>
+            {seasons.map((season) => (
+              <option key={season} value={season}>
+                {season}
+              </option>
+            ))}
           </select>
         </div>
         <button onClick={fetchContent} disabled={loading}>

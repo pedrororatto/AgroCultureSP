@@ -9,11 +9,9 @@ function Content({ content }) {
   const [currentCity, setCurrentCity] = useState(null)
 
   useEffect(() => {
-    content.forEach(({ codigo_ibge, pontuacao_similaridade }) => {
+    content.forEach(({ codigo_ibge }) => {
       const element = document.querySelector('.ibge_' + codigo_ibge)
-      if (element) {
-        element.style.fill = `rgba(100, 108, 255, ${pontuacao_similaridade})`
-      }
+      if (element) element.style.fill = `rgba(100, 108, 255)`
     })
   }, [content])
 
@@ -50,7 +48,7 @@ function Content({ content }) {
         {currentCity ? (
           <div className="city-info">
             <h3>{currentCity.nome}</h3>
-            <p>Pontuação de similaridade: {currentCity.pontuacao_similaridade ? currentCity.pontuacao_similaridade + '%' : 'desconhecido'}</p>
+            <p>Pontuação de similaridade: {currentCity.pontuacao_similaridade ? currentCity.pontuacao_similaridade + '%' : 'não recomendado'}</p>
           </div>
         ) : (
           <p>Selecione uma cidade para ver as informações</p>
