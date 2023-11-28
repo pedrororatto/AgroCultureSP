@@ -53,6 +53,14 @@ def culture(cultureName, seasonName):
     modelo = RandomForestRegressor(n_estimators=100, random_state=42)
     modelo.fit(X_train, y_train)
 
+    # Avaliar o desempenho do modelo com MAE e MSE
+    # y_pred = modelo.predict(X_test)
+    # mae = mean_absolute_error(y_test, y_pred)
+    # mse = mean_squared_error(y_test, y_pred)
+
+    # print(f"Erro Médio Absoluto (MAE) do Modelo: {mae}")
+    # print(f"Erro Quadrático Médio (MSE) do Modelo: {mse}")
+
     # Usar o modelo para prever as pontuações de similaridade para todas as cidades
     pontuacoes_preditas = modelo.predict(X)
 
